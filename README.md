@@ -3,15 +3,16 @@
 In this mini project, we will create a jenkins pipeline by getting a SpringBoot Application code directly from Github and then create a Docker Image of it with the help of Jenkins. After Jenkins will push this Image to docker Hub and test our App by launching a Dcoker container of this Application.
 
 
-![cover](pic)
+![cover](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/cover.png)
 
 
 
 ### Prerequisites:
 All we need to accomplish this project are:
-    - A springBoot Application availbale at: https://github.com/Tcarters/SpringBootApp_and_DevOps
-    - A Jenkins Server (**Mine is running in a local virtual machine at 192.168.38.90:8082** )
-    - A Docker service installed locally and running and a DockerHub Account . 
+
+- A springBoot Application availbale at: https://github.com/Tcarters/SpringBootApp_and_DevOps
+- A Jenkins Server (**Mine is running in a local virtual machine at 192.168.38.90:8082** )
+- A Docker service installed locally and running and a DockerHub Account (Mine is at https://hub.docker.com/search?q=tcdocker2021 ) . 
 
 ## Step 1: Launch The Jenkins server and Configure the Pipeline
  - Start by launching the Jenkins server 
