@@ -221,6 +221,10 @@ pipeline {
 
 ![sbonus-dockerOutput](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/sbonus-dockerOutput.png)
 
-    - On Jenkins pipeline View Dashboard , we have:
+    - On the Jenkins pipeline View Dashboard , we can see :
 
 ![](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/sbonus-resDash.png)
+
+
+
+##### Waaaoooo, Our project is done 🤸 ... and Time to take a Coffee 💥💥 !!! HAPPY LEARNING !!!! 
