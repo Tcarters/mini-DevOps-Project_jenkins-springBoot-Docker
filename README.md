@@ -52,14 +52,14 @@ In this mini project, we will create a jenkins pipeline by getting A springBoot 
 ## Step2: Tell jenkins to build the Docker Image for our Spring App
 > Basically to build the docker Image, we all know that we need a Docker Image isnt ? 🤡 Okay so we have now to create a ``Dockerfile `` in our App repo and with help of Jenkins we'll generate a DockerImage ..Let's do it now 🚴
 
-- 2.1  First create a file named `Dockerfile` in the main directory of src Spring App >> Refer to this link, to understand [](https://github.com/Tcarters/SpringBootApp_and_DevOps)
+- 2.1  First create a file named `Dockerfile` in the main directory of src Spring App >> Refer to this link, to understand https://github.com/Tcarters/SpringBootApp_and_DevOps
 
 - 2.2  In the same folder run  `mvn install` to update the `pom.xml` file of the Spring application. After commit and push it to your git Repo.
 ![s2-1push](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s2-0push.png)
 
 - 2.3 Now before proceeding with jenkins, let's start the Docker service if it's not running . 
     > `As i am on linux machine, run : systemctl start docker`
-    [!s1](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s2-1docker.png)
+    ![s1](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s2-1docker.png)
 
 - 2.4  Now we have to modify our pipeline configuration to integrate another stage which will create a docker image. 
     - The new stage added in the pipeline script :
@@ -78,11 +78,11 @@ In this mini project, we will create a jenkins pipeline by getting A springBoot 
     - 📛📛 Important Configuration before executing the pipeline isrequired : we have to give permission to Jenkins to run docker service , e.g Error is out cause of that 
     ![s2-1builderror](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s2-2failbuild.png)
 
-    - And after Restart the Jenkins service with ```sudo systemctl restart jenkins ``` 
-    
+    - And after Restart the Jenkins service with ```sudo systemctl restart jenkins ```   
     - Now build the pipeline, after permission updated to Jenkins:
+    
     ![](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s2-3respip.png)
-
+    ----
     ![](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s2-4respip2.png)
 
 ## Step 3: Pushing the Docker Image with Jenkins help
@@ -105,10 +105,12 @@ In this mini project, we will create a jenkins pipeline by getting A springBoot 
         }
     ```
     - Before the push, we can see that we haven't a springApp pushed in our dockerhub registry.
-    ![s3-0hub]()
+    ![s3-0hub](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s3-0hub.png)
 
 - 3.2 Save our changes and ` Build` again the pipeline we got :
-    ![s3-1hub](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s3-0hub.png)
+
+    - On our Pipeline Dashboard View:  
+     ![s3-1hub](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s3-1reshub.png)
 
     - By checking the log of our pipeline executed, we can see that everything go well.. 😀
     ![s3-2log](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s3-3coonsol.png)
@@ -117,11 +119,11 @@ In this mini project, we will create a jenkins pipeline by getting A springBoot 
 - 3.3 Checking our Docker Hub for verification : 
    ![s3-4hub](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s3-4hubproof.png)
    
-   > So till now we can see our job is almost done but why not tell Jenkins to test our application ? So that's our next travel ....
+   > So till now we can see our job is almost done but why not tell Jenkins to test our application ? So that will be our next travel ....
 
 ## Step 4: Testing our App by Launching a Docker container with Jenkins
 
-- Here we are 🙂, To test our Application we will start a container based on the Image created earlier in a new state of our pipeline
+- Here we are 🙂, To test our Application we will start a container based on the Image created earlier in a new state of our pipeline.
 
 - The new stage is :
 ```
@@ -135,16 +137,15 @@ In this mini project, we will create a jenkins pipeline by getting A springBoot 
             }
         }
 ```
-- After save and build again we have a new stage with a container launched for testing .
+- After saving and building again we have a new stage with a container launched for testing .
     ![s4-dashres](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s4-Dashpipres.png)
 
 - Global View
 ![](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s4-Dashpipres.png)
 
-- On local Browser we can see our SpringApp available ...
+- On a local Browser, we can see our SpringApp available ...
 
 ![](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/s4-dockRes.png)
-
 
 
 ## BONUS 
@@ -201,7 +202,7 @@ pipeline {
     }
 }
 ```
-- And That summarize our pipeline code definition ...
+- And that summarize our pipeline code definition ...
 
 - To test it, let's create another pipeline named `TestJenkinsfile` like and choose the pipeline method as *Git* with configuration like:
 
@@ -209,12 +210,13 @@ pipeline {
 
     - ![sbonus-2](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/sbonus-2.png)
 
-- After saved the configuration and build , we can see the success of App pushed, deployed and launched 
+- After saved and build the configuration, we can see the success of App pushed, deployed and launched ...
 
     - ![sbonus-res](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/sbonus-res1.png)
     - ![](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/sbonus-2.png)
+
 - Verification on our browser, we have the App launched by jenkins
 
-![sbonus-dockerOutput] (https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/sbonus-dockerOutput.png)
+![sbonus-dockerOutput](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/sbonus-dockerOutput.png)
 
 ![](https://github.com/Tcarters/mini-DevOps-Project_jenkins-springBoot-Docker/blob/master/Screenshots/sbonus-resDash.png)
